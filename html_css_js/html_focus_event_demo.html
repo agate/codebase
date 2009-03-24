@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Html Focus Event Demo</title>
+    <style type="text/css" media="screen">
+      #divA {
+        background-color: blue;
+        width: 200px;
+        height: 200px;
+      }
+      #divB {
+        background-color: black;
+        width: 200px;
+        height: 200px;
+      }
+      #divC {
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      function add (ele, ev, func, ft) {
+        if (ele.addEventListener) {
+          ele.addEventListener(ev, func, ft);
+        } else {
+          ele.attachEvent("on" + ev, func);
+        }
+      } 
+      //]]>
+    </script>
+  </head>
+  <body>
+    <div id="divA">
+      <a href="#">a</a>
+    </div>
+    <div id="divB">
+      <div id="divC" />
+    </div>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      var da = document.getElementById('divA');
+      var db = document.getElementById('divB');
+      var dc = document.getElementById('divC');
+      var link = document.getElementsByTagName('a')[0];
+
+      add(da, "select", function () {
+        alert('focus div a');
+      });
+      add(db, "focus", function () {
+        alert('focus div b');
+      });
+      add(dc, "focus", function () {
+        alert('focus div c');
+      });
+      add(link, "focus", function () {
+        alert('focus link a');
+      });
+      //]]>
+    </script>
+  </body>
+</html>

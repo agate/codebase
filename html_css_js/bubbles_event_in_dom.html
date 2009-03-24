@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Bubbles Event in DOM</title>
+    <script src="./lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      $(document).ready(function () {
+        $('.big:first').click(function () {
+          alert('touch the big div');
+        });
+        $('.small:last').click(function () {
+          alert('touch the small div');
+        });
+      });
+      //]]>
+    </script>
+    <style type="text/css" media="screen">
+      .big {
+        width:            200px;
+        height:           200px;
+        background-color: green;
+      }
+      .small {
+        width:  100px;
+        height: 100px;
+        margin: 50px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="big">
+      click me -- alert
+      <div class="small">
+        click me -- alert
+      </div>
+    </div>
+    <hr />
+    <div class="big">
+      click me -- no alert
+      <div class="small">
+        click me -- alert
+      </div>
+    </div>
+  </body>
+</html>

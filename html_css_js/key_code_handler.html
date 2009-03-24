@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>test javascript key code</title>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      function add(ele, ev, func, ft) {
+        if (ele.addEventListener) {
+          ele.addEventListener(ev, func, ft);
+        } else {
+          ele.attachEvent("on" + ev, func);
+        }
+      }
+
+      function init () {
+        add(document, 'keydown', function (e) {
+          var key = e.keyCode;
+          alert(key);
+        }, true);
+      }
+
+      document.onload = init();
+      //]]>
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

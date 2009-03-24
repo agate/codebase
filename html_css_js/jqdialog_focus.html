@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>jquery dialog focus event test</title>
+    <link type="text/css" rel="stylesheet" href="./lib/theme/ui.all.css" />
+    <script src="./lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./lib/jquery-ui.js" type="text/javascript" charset="utf-8"></script>
+
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      function focusInput () {
+        $('input[type=text]').focus();
+      }
+
+      $(document).ready(function () {
+        var dialogOptions = {
+          open:focusInput
+        };
+        var jq = $("#dialog").dialog(dialogOptions);
+        $('input[type=button]').click(function () {
+          jq.dialog('open');
+        });
+      });
+      //]]>
+    </script>
+  </head>
+  <body>
+    <input type="button" value="open dialog" />
+    <div id="dialog">
+      <a href="javascript:void(0);">link</a>
+      <input type="text" />
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <title>Skype like button</title>
+    <style type="text/css" media="screen">
+      .button {
+        padding: 4px 10px 3px 25px;
+        border: solid 1px #8AB134;
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        background-image: url( 'bkg.png' );
+        background-repeat: repeat-x;
+        font-size: 11px;
+        height: 16px;
+        text-decoration: none;
+        color: #40740D;
+        -moz-border-radius-bottomleft: 5px;
+        -moz-border-radius-bottomright: 5px;
+        -moz-border-radius-topleft: 5px;
+        -moz-border-radius-topright: 5px;
+      }
+      .button img {
+        position: absolute;
+        top: -4px;
+        left: -12px;
+        border: none;
+      }
+      .button:hover {
+        color: #8AB134;
+      }
+    </style>
+    <script src="../lib/jquery.js" type="text/javascript"<+ charset="<+utf-8+>"+>></script>
+    <script type="text/javascript" language="javascript" charset="utf-8">
+      //<![CDATA[
+      $(document).ready(function(){
+        $(".button").hover(function(){
+          $(".button img")
+          // first jump 
+          .animate({top:"-10px"}, 200).animate({top:"-4px"}, 200)
+          // second jump
+          .animate({top:"-7px"}, 100).animate({top:"-4px"}, 100)
+          // the last jump
+          .animate({top:"-6px"}, 100).animate({top:"-4px"}, 100);
+        });
+      });
+      //]]>
+    </script>
+  </head>
+  <body>
+    <a href="#" class="button"><img src="discussion.png" alt="" />Join the disscussion</a>
+  </body>
+</html>
