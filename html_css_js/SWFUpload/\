@@ -35,27 +35,23 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
   },
 
   initHTML: function () {
-    this.jq         = $('#swf');
-    this.jqProgress = $('#progress');
-    this.jqForm     = $('form:first');
+    this.jq     = $('#swf:first');
+    this.jqForm = $('form:first');
   },
 
   buildSWFUploader: function () {
-    var self    = this;
-    this.queues = {};
-    this.swfu   = new SWFUpload({
+    var self  = this;
+    this.swfu = new SWFUpload({
       upload_url:     '/upload',
       flash_url:      '/SWFUpload/swfupload.swf',
       file_post_name: 'file',
 
       debug: true,
 
-      // Button settings
+      button_text:           'click',
       button_placeholder_id: 'swf',
-      button_image_url:      "/SWFUpload/uploader_button.png",
-      button_width:          "116",
-      button_height:         "25",
-      button_window_mode:    SWFUpload.WINDOW_MODE.TRANSPARENT,
+      button_width:          '116',
+      button_height:         '25',
 
 
       // callbacks
@@ -77,7 +73,6 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
 
   swfuploadLoaded: function () {
     console.log('swfuploadLoaded: ', arguments, this);
-    this.jqForm.hide();
   },
 
   fileDialogStart: function () {
@@ -85,7 +80,7 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
   },
 
   fileQueued: function (file) {
-    this.queues[file.id] = new Progress(this.jqProgress);
+    console.log('fileQueued: ', arguments, this);
   },
 
   fileQueueError: function (file, errorCode, message) {
@@ -102,8 +97,7 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
   },
 
   uploadProgress: function (file, complete, total) {
-    var percent = Math.round(complete / total) * 100;
-    this.queues[file.id].setPercent(percent);
+    console.log('uploadProgress: ', arguments, this);
   },
 
   uploadError: function (file, errorCode, message) {
@@ -120,27 +114,11 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
 };
 
 var Progress = function () { this.initialize.apply(this, arguments); }; Progress.prototype = {
-  initialize: function (jqSeed) {
-    this.jqSeed = jqSeed;
+  initialize: function (seed) {
     this.initHTML();
   },
 
   initHTML: function () {
-    this.jq = $('<div>0%</div>');
-    this.jqSeed.append(this.jq);
-  },
-
-  setPercent: function (percent) {
-    this.jq.html(percent + '%');
-    if (percent == 100) {
-      this.finished();
-    }
-  },
-
-  finished: function () {
-    var self = this;
-    setTimeout(function () {
-      self.jq.hide('slow');
-    }, 3000);
+    this.
   }
 };
