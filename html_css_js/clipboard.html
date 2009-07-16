@@ -65,7 +65,7 @@
 
         jqTextarea.keydown(function () {
           if (jqFocus) setTimeout(function () {
-            jqFocus.text(jqTextarea.val());
+            if (jqFocus) jqFocus.text(jqTextarea.val());
           }, 100);
         }).blur(function () {
           blurAllCell();

@@ -1,0 +1,11 @@
+%head
+  %script{ :type => 'text/javascript', :src => '/javascripts/jquery.js' }
+  %script{ :type => 'text/javascript', :src => '/SWFUpload/swfupload.js' }
+  %script{ :type => 'text/javascript', :src => '/SWFUpload/plugins/swfupload.queue.js' }
+  %script{ :type => 'text/javascript', :src => '/javascripts/main.js' }
+%body
+  %form{ :action => '/upload', :method => 'post', :enctype => 'multipart/form-data' }
+    %input{ :name => 'file', :type => 'file'}
+    %input{ :type => 'submit', :value => 'upload' }
+  %hr/
+  #swf
