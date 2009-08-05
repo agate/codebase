@@ -1,3 +1,5 @@
+#! /usr/bin/ruby
+
 # base gems
 require 'rubygems'
 require 'ruby-debug'
