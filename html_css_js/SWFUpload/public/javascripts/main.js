@@ -85,6 +85,7 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
   },
 
   fileQueued: function (file) {
+    console.log('fileQueued: ', arguments, this);
     this.queues[file.id] = new Progress(this.jqProgress);
   },
 
@@ -102,6 +103,7 @@ var Uploader = function () { this.initialize.apply(this, arguments); }; Uploader
   },
 
   uploadProgress: function (file, complete, total) {
+    console.log('uploadProgress: ', arguments, this);
     var percent = Math.round(complete / total) * 100;
     this.queues[file.id].setPercent(percent);
   },
