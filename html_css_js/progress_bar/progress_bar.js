@@ -50,4 +50,4 @@ var ProgressBar = function () { this.initialize.apply(this, arguments); }; Progr
     this.jqBar.width(width);
     this.jqText.html(percent + '%');
   }
-}
+};
